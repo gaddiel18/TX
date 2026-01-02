@@ -2,8 +2,8 @@ clear all
 close all
 gyro=2.675*1e8;
 
-Nsamples=512;
-sampling_time=5120*1e-6/Nsamples;
+Nsamples=128;
+sampling_time=128*1e-6/Nsamples;
 t_sampled=(0:1:(Nsamples-1))*sampling_time;
 T1=1;
 T2=0.1;
@@ -12,8 +12,8 @@ addpath('C:\Users\Gaddiel.Ouaknin\Documents\BSSFP')
 addpath('C:\Users\Gaddiel.Ouaknin\Documents\EddyCurrent\')
 
 seq=sequence;
-analyze_data=false;
-simulate_data=true;
+analyze_data=true;
+simulate_data=false;
 if analyze_data
     f = 'meas_MID00204_FID12351_AdjTra.dat';
     p = 'C:\Users\Gaddiel.Ouaknin\Documents\TXADJUST\SiemensData';
@@ -31,7 +31,7 @@ if analyze_data
     title('Siemens Data')
     legend('SE','STE')
 
-    input_data_folder='\Tx 29 Dec 2pm\'; channels=5;
+    input_data_folder='\Tx 2 Jan 10 am 2026\'; channels=6;
     mrs=MRSparser();
     S=mrs.get_signal(input_data_folder,'TxCal',channels);
     figure(2)
@@ -98,10 +98,10 @@ if analyze_data
     ylabel('Signal')
 
   kMaxRfScale = 32767;
-  noViews_=101;
+  noViews_=31;
   minDAC = 0;
-  center = round(0.65 * kMaxRfScale);
-  x = 4000; 
+  center = round(0.2 * kMaxRfScale);
+  x = 1000; 
   rfCalibrationValue_=zeros(noViews_,1);
   calIdx=ixx;
   t = double(calIdx) / (noViews_ - 1);

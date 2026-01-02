@@ -2,11 +2,10 @@ classdef epg
 
    properties
 
-       Fp=0;
-       Fn=0;
-       Fz=0;
+       F=[0 0 0]';
        ki=0;
        kd=0;
+       active=0;
 
    end
 
